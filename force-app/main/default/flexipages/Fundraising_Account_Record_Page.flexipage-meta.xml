@@ -91,6 +91,16 @@
                 <identifier>RecordFundraiser_Special_Comm__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Nickname__c</fieldItem>
+                <identifier>RecordNickname_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-53a681eb-038d-418b-8d57-8e16888933b7</name>
         <type>Facet</type>
     </flexiPageRegions>

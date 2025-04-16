@@ -3,6 +3,7 @@
 	<types>
 		<members>Account.Deceased_Date__c</members>
 		<members>Account.Deceased__c</members>
+		<members>Account.Nickname__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
