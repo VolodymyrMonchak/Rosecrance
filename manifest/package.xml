@@ -4,6 +4,7 @@
 		<members>Account.Deceased_Date__c</members>
 		<members>Account.Deceased__c</members>
 		<members>Account.Nickname__c</members>
+		<members>Account.Marital_Status__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>

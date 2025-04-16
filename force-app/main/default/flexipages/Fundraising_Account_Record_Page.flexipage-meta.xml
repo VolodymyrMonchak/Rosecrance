@@ -101,6 +101,16 @@
                 <identifier>RecordNickname_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Marital_Status__c</fieldItem>
+                <identifier>RecordMarital_Status_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-53a681eb-038d-418b-8d57-8e16888933b7</name>
         <type>Facet</type>
     </flexiPageRegions>
