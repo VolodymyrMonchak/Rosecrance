@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    
-    <version>63.0</version>
+	<types>
+		<members>Account.Deceased_Date__c</members>
+		<members>Account.Deceased__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Fundraising_Account_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Admin_Full_Access</members>
+		<members>Fundraising_Additional_Access</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>63.0</version>
 </Package>
