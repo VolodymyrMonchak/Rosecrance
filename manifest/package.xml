@@ -3,8 +3,8 @@
 	<types>
 		<members>Account.Deceased_Date__c</members>
 		<members>Account.Deceased__c</members>
-		<members>Account.Nickname__c</members>
 		<members>Account.Marital_Status__c</members>
+		<members>Account.Nickname__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -15,6 +15,16 @@
 		<members>Admin_Full_Access</members>
 		<members>Fundraising_Additional_Access</members>
 		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>Business_Development</members>
+		<members>Fundraising</members>
+		<name>Role</name>
+	</types>
+	<types>
+		<members>Account.Business_Development_Account_Sharing</members>
+		<members>Account.Fundraising_Account_Sharing</members>
+		<name>SharingCriteriaRule</name>
 	</types>
 	<version>63.0</version>
 </Package>
