@@ -5,5 +5,6 @@
     <description>Created by Provisio for the Data Migration effort from Razor&apos;s Edge</description>
     <label>Deceased</label>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>

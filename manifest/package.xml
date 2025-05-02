@@ -12,12 +12,15 @@
 		<name>FlexiPage</name>
 	</types>
 	<types>
+		<members>Business_Development_Sharing_Group</members>
+		<name>Group</name>
+	</types>
+	<types>
 		<members>Admin_Full_Access</members>
 		<members>Fundraising_Additional_Access</members>
 		<name>PermissionSet</name>
 	</types>
 	<types>
-		<members>Business_Development</members>
 		<members>Fundraising</members>
 		<name>Role</name>
 	</types>

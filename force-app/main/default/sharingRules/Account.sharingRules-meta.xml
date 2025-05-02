@@ -10,7 +10,7 @@
         </accountSettings>
         <label>Business Development Account Sharing</label>
         <sharedTo>
-            <role>Business_Development</role>
+            <group>Business_Development_Sharing_Group</group>
         </sharedTo>
         <criteriaItems>
             <field>Fundraising_Account_Override__c</field>
