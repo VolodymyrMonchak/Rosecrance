@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Mailing_Address__c</fullName>
+    <inlineHelpText>If the constituent has a Contact Point Address record (seasonal address) that they are currently staying at, this field will display that address. If there is not a currently active Seasonal Address, this field will return the constituent&apos;s Mailing Address (which is their primary address).</inlineHelpText>
+    <label>Current Mailing Address</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Address</type>
+</CustomField>
