@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_Parent_ID_to_Collection</name>
+        <label>Add Parent ID to Collection</label>
+        <locationX>264</locationX>
+        <locationY>984</locationY>
+        <assignmentItems>
+            <assignToReference>vAccountUpdateIDs</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>SED.ParentId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SED</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_to_Update_Collection</name>
+        <label>Add to Update Collection</label>
+        <locationX>264</locationX>
+        <locationY>576</locationY>
+        <assignmentItems>
+            <assignToReference>vAccounts</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>vAccount_TEMP</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccountIDsCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>SSD.ParentId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SSD</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_to_Update_Collection_2</name>
+        <label>Add to Update Collection</label>
+        <locationX>264</locationX>
+        <locationY>1500</locationY>
+        <assignmentItems>
+            <assignToReference>vAccounts</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>vAccount_TEMP</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Match_Mailing_and_Current_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>264</locationX>
+        <locationY>468</locationY>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__PostalCode__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SSD.PostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__Street__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SSD.Street</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__City__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SSD.City</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__CountryCode__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fCountryCodes_SSD</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__StateCode__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SSD.State</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SSD.ParentId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_to_Update_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Account_2</name>
+        <label>Update Account</label>
+        <locationX>264</locationX>
+        <locationY>1392</locationY>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__PostalCode__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Match_Mailing_and_Current_Address.PersonMailingPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__Street__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Match_Mailing_and_Current_Address.PersonMailingStreet</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__City__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Match_Mailing_and_Current_Address.PersonMailingCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__CountryCode__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fCountryCodes_SED</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Current_Mailing_Address__StateCode__ps</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Match_Mailing_and_Current_Address.PersonMailingState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vAccount_TEMP.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Match_Mailing_and_Current_Address.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_to_Update_Collection_2</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <formulas>
+        <name>fCountryCodes_SED</name>
+        <dataType>String</dataType>
+        <expression>CASE({!Match_Mailing_and_Current_Address.PersonMailingCountry},
+    &quot;United States&quot;, &quot;US&quot;,
+    &quot;United Kingdom&quot;, &quot;GB&quot;,
+    &quot;Germany&quot;, &quot;DE&quot;,
+    &quot;France&quot;, &quot;FR&quot;,
+    &quot;Italy&quot;, &quot;IT&quot;,
+    &quot;Spain&quot;, &quot;ES&quot;,
+    &quot;Canada&quot;, &quot;CA&quot;,
+    &quot;Australia&quot;, &quot;AU&quot;,
+    &quot;Japan&quot;, &quot;JP&quot;,
+    &quot;China&quot;, &quot;CN&quot;,
+    &quot;India&quot;, &quot;IN&quot;,
+    &quot;Brazil&quot;, &quot;BR&quot;,
+    &quot;Mexico&quot;, &quot;MX&quot;,
+    &quot;Netherlands&quot;, &quot;NL&quot;,
+    &quot;South Korea&quot;, &quot;KR&quot;,
+    &quot;Sweden&quot;, &quot;SE&quot;,
+    &quot;Switzerland&quot;, &quot;CH&quot;,
+    &quot;Poland&quot;, &quot;PL&quot;,
+    &quot;Belgium&quot;, &quot;BE&quot;,
+    &quot;Norway&quot;, &quot;NO&quot;,
+    &quot;Austria&quot;, &quot;AT&quot;,
+    &quot;Denmark&quot;, &quot;DK&quot;,
+    &quot;Finland&quot;, &quot;FI&quot;,
+    &quot;Ireland&quot;, &quot;IE&quot;,
+    &quot;Singapore&quot;, &quot;SG&quot;,
+    &quot;New Zealand&quot;, &quot;NZ&quot;,
+    &quot;Ukraine&quot;, &quot;UA&quot;,
+    &quot;South Africa&quot;, &quot;ZA&quot;,
+    &quot;Türkiye&quot;, &quot;TR&quot;,
+    &quot;Saudi Arabia&quot;, &quot;SA&quot;,
+    &quot;United Arab Emirates&quot;, &quot;AE&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fCountryCodes_SSD</name>
+        <dataType>String</dataType>
+        <expression>CASE({!SSD.Country},
+    &quot;United States&quot;, &quot;US&quot;,
+    &quot;United Kingdom&quot;, &quot;GB&quot;,
+    &quot;Germany&quot;, &quot;DE&quot;,
+    &quot;France&quot;, &quot;FR&quot;,
+    &quot;Italy&quot;, &quot;IT&quot;,
+    &quot;Spain&quot;, &quot;ES&quot;,
+    &quot;Canada&quot;, &quot;CA&quot;,
+    &quot;Australia&quot;, &quot;AU&quot;,
+    &quot;Japan&quot;, &quot;JP&quot;,
+    &quot;China&quot;, &quot;CN&quot;,
+    &quot;India&quot;, &quot;IN&quot;,
+    &quot;Brazil&quot;, &quot;BR&quot;,
+    &quot;Mexico&quot;, &quot;MX&quot;,
+    &quot;Netherlands&quot;, &quot;NL&quot;,
+    &quot;South Korea&quot;, &quot;KR&quot;,
+    &quot;Sweden&quot;, &quot;SE&quot;,
+    &quot;Switzerland&quot;, &quot;CH&quot;,
+    &quot;Poland&quot;, &quot;PL&quot;,
+    &quot;Belgium&quot;, &quot;BE&quot;,
+    &quot;Norway&quot;, &quot;NO&quot;,
+    &quot;Austria&quot;, &quot;AT&quot;,
+    &quot;Denmark&quot;, &quot;DK&quot;,
+    &quot;Finland&quot;, &quot;FI&quot;,
+    &quot;Ireland&quot;, &quot;IE&quot;,
+    &quot;Singapore&quot;, &quot;SG&quot;,
+    &quot;New Zealand&quot;, &quot;NZ&quot;,
+    &quot;Ukraine&quot;, &quot;UA&quot;,
+    &quot;South Africa&quot;, &quot;ZA&quot;,
+    &quot;Türkiye&quot;, &quot;TR&quot;,
+    &quot;Saudi Arabia&quot;, &quot;SA&quot;,
+    &quot;United Arab Emirates&quot;, &quot;AE&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TODAY</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Contact Point Address - Scheduled Flow - Update Person Account Current Mailing Address {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Point Address - Scheduled Flow - Update PA Current Mailing Address</label>
+    <loops>
+        <name>Match_Mailing_and_Current_Address</name>
+        <label>Match Mailing and Current Address</label>
+        <locationX>176</locationX>
+        <locationY>1284</locationY>
+        <collectionReference>Get_Accounts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Update_Account_2</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Accounts</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>SED</name>
+        <label>SED</label>
+        <locationX>176</locationX>
+        <locationY>876</locationY>
+        <collectionReference>Get_All_Contact_Point_Address_SED_Today</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Parent_ID_to_Collection</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Accounts</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>SSD</name>
+        <label>SSD</label>
+        <locationX>176</locationX>
+        <locationY>360</locationY>
+        <collectionReference>Get_All_Contact_Point_Address_SSD_Today</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Update_Account</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_All_Contact_Point_Address_SED_Today</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Accounts</name>
+        <label>Get Accounts</label>
+        <locationX>176</locationX>
+        <locationY>1176</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Match_Mailing_and_Current_Address</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>vAccountUpdateIDs</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>PersonMailingCity</queriedFields>
+        <queriedFields>PersonMailingCountry</queriedFields>
+        <queriedFields>PersonMailingStreet</queriedFields>
+        <queriedFields>PersonMailingPostalCode</queriedFields>
+        <queriedFields>PersonMailingState</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Seasonal End Date is Today</description>
+        <name>Get_All_Contact_Point_Address_SED_Today</name>
+        <label>Get All Contact Point Address SED Today</label>
+        <locationX>176</locationX>
+        <locationY>768</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SED</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Seasonal_End_Date__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TODAY</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>UsageType</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Inactive</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ParentId</field>
+            <operator>NotIn</operator>
+            <value>
+                <elementReference>vAccountIDsCollection</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ContactPointAddress</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ParentId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Seasonal Start Date is Today</description>
+        <name>Get_All_Contact_Point_Address_SSD_Today</name>
+        <label>Get All Contact Point Address SSD Today</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SSD</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Seasonal_Start_Date__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TODAY</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>UsageType</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Inactive</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ContactPointAddress</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ParentId</queriedFields>
+        <queriedFields>Street</queriedFields>
+        <queriedFields>Country</queriedFields>
+        <queriedFields>PostalCode</queriedFields>
+        <queriedFields>State</queriedFields>
+        <queriedFields>City</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Accounts</name>
+        <label>Update Accounts</label>
+        <locationX>176</locationX>
+        <locationY>1692</locationY>
+        <inputReference>vAccounts</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_All_Contact_Point_Address_SSD_Today</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-04-29</startDate>
+            <startTime>02:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>vAccount_TEMP</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>vAccountIDsCollection</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>vAccounts</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <description>Used just for Account Update</description>
+        <name>vAccountUpdateIDs</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

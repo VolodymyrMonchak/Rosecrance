@@ -5,6 +5,9 @@
 		<members>Account.Deceased__c</members>
 		<members>Account.Marital_Status__c</members>
 		<members>Account.Nickname__c</members>
+		<members>Contact.Current_Mailing_Address__c</members>
+		<members>ContactPointAddress.Seasonal_End_Date__c</members>
+		<members>ContactPointAddress.Seasonal_Start_Date__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -12,8 +15,17 @@
 		<name>FlexiPage</name>
 	</types>
 	<types>
+		<members>Contact_Point_Address_Scheduled_Flow_Update_PA_Current_Mailing_Address</members>
+		<name>Flow</name>
+	</types>
+	<types>
 		<members>Business_Development_Sharing_Group</members>
 		<name>Group</name>
+	</types>
+	<types>
+		<members>ContactPointAddress-Contact Point Address Layout</members>
+		<members>PersonAccount-Person Account Layout</members>
+		<name>Layout</name>
 	</types>
 	<types>
 		<members>Admin_Full_Access</members>
