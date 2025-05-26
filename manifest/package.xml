@@ -8,10 +8,16 @@
 		<members>Contact.Current_Mailing_Address__c</members>
 		<members>ContactPointAddress.Seasonal_End_Date__c</members>
 		<members>ContactPointAddress.Seasonal_Start_Date__c</members>
+		<members>GiftEntry.Gift_Notes__c</members>
+		<members>GiftEntry.Gift_Reference__c</members>
+		<members>GiftEntry.Type__c</members>
+		<members>GiftTransaction.Type__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
 		<members>Fundraising_Account_Record_Page</members>
+		<members>Gift_Entry_Record_Page1</members>
+		<members>Gift_Transaction_Record_Page</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
