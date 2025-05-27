@@ -39,6 +39,14 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>FundraisingReports/Gift_Tributes_TZm</members>
+		<name>Report</name>
+	</types>
+	<types>
+		<members>Gift_Transactions_with_Gift_Tributes</members>
+		<name>ReportType</name>
+	</types>
+	<types>
 		<members>Fundraising</members>
 		<name>Role</name>
 	</types>
