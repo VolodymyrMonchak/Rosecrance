@@ -41,10 +41,12 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>FundraisingReports/Accounts_with_Gift_Transactions_Pmj</members>
 		<members>FundraisingReports/Gift_Tributes_TZm</members>
 		<name>Report</name>
 	</types>
 	<types>
+		<members>Accounts_with_Gift_Transactions</members>
 		<members>Gift_Transactions_with_Gift_Tributes</members>
 		<name>ReportType</name>
 	</types>
