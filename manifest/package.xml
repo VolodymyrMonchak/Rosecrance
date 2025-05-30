@@ -11,6 +11,7 @@
 		<members>GiftEntry.Gift_Notes__c</members>
 		<members>GiftEntry.Gift_Reference__c</members>
 		<members>GiftEntry.Type__c</members>
+		<members>GiftTransaction.Classy_Order_Comment__c</members>
 		<members>GiftTransaction.Type__c</members>
 		<name>CustomField</name>
 	</types>
@@ -22,6 +23,7 @@
 	</types>
 	<types>
 		<members>Contact_Point_Address_Scheduled_Flow_Update_PA_Current_Mailing_Address</members>
+		<members>Gift_Transaction_Before_Create_Flow</members>
 		<name>Flow</name>
 	</types>
 	<types>
