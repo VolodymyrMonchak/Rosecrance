@@ -8,7 +8,6 @@
 		<members>Contact.Current_Mailing_Address__c</members>
 		<members>ContactPointAddress.Seasonal_End_Date__c</members>
 		<members>ContactPointAddress.Seasonal_Start_Date__c</members>
-		<members>GiftEntry.Gift_Notes__c</members>
 		<members>GiftEntry.Gift_Reference__c</members>
 		<members>GiftEntry.Type__c</members>
 		<members>GiftTransaction.Classy_Order_Comment__c</members>
