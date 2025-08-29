@@ -8,7 +8,6 @@
 		<members>Contact.Current_Mailing_Address__c</members>
 		<members>ContactPointAddress.Seasonal_End_Date__c</members>
 		<members>ContactPointAddress.Seasonal_Start_Date__c</members>
-		<members>GiftEntry.Gift_Notes__c</members>
 		<members>GiftEntry.Gift_Reference__c</members>
 		<members>GiftEntry.Type__c</members>
 		<members>GiftTransaction.Classy_Order_Comment__c</members>
@@ -41,10 +40,12 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>FundraisingReports/Accounts_with_Gift_Transactions_Pmj</members>
 		<members>FundraisingReports/Gift_Tributes_TZm</members>
 		<name>Report</name>
 	</types>
 	<types>
+		<members>Accounts_with_Gift_Transactions</members>
 		<members>Gift_Transactions_with_Gift_Tributes</members>
 		<name>ReportType</name>
 	</types>

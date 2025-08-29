@@ -147,14 +147,12 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Type__c</fieldItem>
                 <identifier>RecordType__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.Gift_Reference__c</fieldItem>
-                <identifier>RecordGift_Reference__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-dd4e481a-2217-495d-9a8e-acc315ebe62d</name>
@@ -247,8 +245,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Gift_Notes__c</fieldItem>
-                <identifier>RecordGift_Notes__cField</identifier>
+                <fieldItem>Record.Gift_Reference__c</fieldItem>
+                <identifier>RecordGift_Reference__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-4af6c9c9-b307-40d1-b56d-e852b051934a</name>
